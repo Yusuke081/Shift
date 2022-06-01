@@ -2,12 +2,106 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet"  th:href="@{/css/calendar.css}"/>
+<script th:src="@{/js/calendar.js}"></script>
+<title>シフト希望</title>
 </head>
 <body>
-    
+<div>
+	<form th:action="@{/calender}">
+	<table>
+		<tr>
+			<td>
+			    <!-- <div id="date" name="date" th;each="@{date}"></div> -->
+			    <th:block th:each="i : ${#numbers.sequence(1,days,1)}">
+                <p th:text="${i}"></p>
+				
+				<div id="sbh1"><input type="radio" class="sbh1" name="test" value="ラジオボタン１" onclick="clickBtn1();"/><span>休み</span></div>
+				<div id="sbh2"><input type="radio" class="sbh2" name="test" value="ラジオボタン２" onclick="clickBtn2();"/><span>出勤</span></div>
+				<input type="radio" class="sbh3" id="sbh3" name="test" value="ラジオボタン１" onclick="clickBtn3();"/>
+				
+				
+				<label for="time"></label>
+				<input value="08;00" type="time" list="data-list" name="予定の時刻" min="06:00" max="020:00" step="1800"/>
+				<span></span>
+				<datalist id="data-list">
+			    <option value="06:00"></option>
+				<option value="06:30"></option>
+				<option value="07:00"></option>
+			    <option value="07:30"></option>
+				<option value="08:00"></option>
+				<option value="08:30"></option>
+				<option value="09:00"></option>
+				<option value="09:30"></option>
+				<option value="10:00"></option>
+			    <option value="10:30"></option>
+				<option value="11:00"></option>
+				<option value="11:30"></option>
+				<option value="12:00"></option>
+				<option value="12:30"></option>
+			    <option value="13:00"></option>
+				<option value="13:30"></option>
+				<option value="14:00"></option>
+				<option value="14:30"></option>
+				<option value="15:00"></option>
+			    <option value="15:30"></option>
+				<option value="16:00"></option>
+				<option value="16:30"></option>
+				<option value="17:00"></option>
+				<option value="17:30"></option>
+				<option value="18:00"></option>
+			    <option value="18:30"></option>
+				<option value="19:00"></option>
+				<option value="19:30"></option>
+				<option value="20:00"></option>
+				<option value="20:30"></option>
+				</datalist>
+				
+				
+				<label for="time"></label>
+				<input value="08;00" type="time" list="data-list" name="予定の時刻" min="06:00" max="020:00" step="1800"/>
+				<span></span>
+				<datalist id="data-list">
+			    <option value="06:00"></option>
+				<option value="06:30"></option>
+				<option value="07:00"></option>
+			    <option value="07:30"></option>
+				<option value="08:00"></option>
+				<option value="08:30"></option>
+				<option value="09:00"></option>
+				<option value="09:30"></option>
+				<option value="10:00"></option>
+			    <option value="10:30"></option>
+				<option value="11:00"></option>
+				<option value="11:30"></option>
+				<option value="12:00"></option>
+				<option value="12:30"></option>
+			    <option value="13:00"></option>
+				<option value="13:30"></option>
+				<option value="14:00"></option>
+				<option value="14:30"></option>
+				<option value="15:00"></option>
+			    <option value="15:30"></option>
+				<option value="16:00"></option>
+				<option value="16:30"></option>
+				<option value="17:00"></option>
+				<option value="17:30"></option>
+				<option value="18:00"></option>
+			    <option value="18:30"></option>
+				<option value="19:00"></option>
+				<option value="19:30"></option>
+				<option value="20:00"></option>
+				<option value="20:30"></option>
+				</datalist>
+				</th:block>
+			</td>
+		</tr>
+	</table>
+  
 
+</form>
 
+</div>
 
 </body>
 </html>
