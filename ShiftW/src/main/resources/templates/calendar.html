@@ -7,22 +7,27 @@
 <title>シフト希望</title>
 </head>
 <body>
-<div>
-	<form th:action="@{/calender}">
-	<table>
-		<tr>
-			<td>
-			    <!-- <div id="date" name="date" th;each="@{date}"></div> -->
-			    <th:block th:each="i : ${#numbers.sequence(1,days,1)}">
-                <p th:text="${i}"></p>
+<div class="box" th:action="@{/calender}">
+    <form th;> 
+    	
+    </form>
+    <table>
+		
+		<form>
+	
+	    <!-- <div id="date" name="date" th;each="@{date}"></div> -->
+		    
+		    <th:block th:each="i : ${#numbers.sequence(1,days,1)}">
+	        <tr>
+	            <td><p th:text="|5/${i}|"></p></td>
+			
+				<td><p th:id="'sbh1_'+ ${i}" class="box_1"><input type="radio" th:id="${i}" class="sbh1" th:name="|radio${i}|" value="ラジオボタン１" onclick="clickBtn1(this.id)"/><span>休み</span></p></td>
+				<td><p th:id="'sbh2_'+ ${i}" class="box_1"><input type="radio" th:id="'sbh2_'+ ${i}" class="sbh2" th:name="|radio${i}|" value="ラジオボタン２" onclick="clickBtn2(this.id);"/><span>出勤</span></p></td>
 				
-				<div id="sbh1"><input type="radio" class="sbh1" name="test" value="ラジオボタン１" onclick="clickBtn1();"/><span>休み</span></div>
-				<div id="sbh2"><input type="radio" class="sbh2" name="test" value="ラジオボタン２" onclick="clickBtn2();"/><span>出勤</span></div>
-				<input type="radio" class="sbh3" id="sbh3" name="test" value="ラジオボタン１" onclick="clickBtn3();"/>
 				
 				
-				<label for="time"></label>
-				<input value="08;00" type="time" list="data-list" name="予定の時刻" min="06:00" max="020:00" step="1800"/>
+				<td><label for="time"></label>
+				<input id="'time1_'+ ${i}" class="time" value="08;00" type="time" list="data-list" th:name="|time${i}|" min="06:00" max="020:00" step="1800"/>
 				<span></span>
 				<datalist id="data-list">
 			    <option value="06:00"></option>
@@ -55,11 +60,12 @@
 				<option value="19:30"></option>
 				<option value="20:00"></option>
 				<option value="20:30"></option>
-				</datalist>
+				</datalist></td>
 				
 				
-				<label for="time"></label>
-				<input value="08;00" type="time" list="data-list" name="予定の時刻" min="06:00" max="020:00" step="1800"/>
+				
+				<td><label for="time"></label>
+				<input id="'time2_'+ ${i}" class="time" value="08;00" type="time" list="data-list" th:name="|time${i}|" min="06:00" max="020:00" step="1800"/>
 				<span></span>
 				<datalist id="data-list">
 			    <option value="06:00"></option>
@@ -92,15 +98,17 @@
 				<option value="19:30"></option>
 				<option value="20:00"></option>
 				<option value="20:30"></option>
-				</datalist>
-				</th:block>
-			</td>
-		</tr>
+				</datalist></td>
+				
+			
+			
+				<td><p th:id="'sbh3_'+ ${i}"><input  type="radio" class="sbh3"  th:name="|radio${i}|" value="ラジオボタン3" onclick="clickBtn3(this.id);"/></p></td>
+			</tr>
+			</th:block>
+			<input type="submit" value="送信">
+		</form>
+		
 	</table>
-  
-
-</form>
-
 </div>
 
 </body>

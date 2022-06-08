@@ -30,13 +30,24 @@ public class CalendarController {
 		//int year = c.get(Calendar.YEAR);
 	    //int month = c.get(Calendar.MONTH);
 		int days = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+		
 		model.addAttribute("days", days);
 		
 			
 			
 		
-	 return "calendar";
+	 return ;
 	 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }    
 
 
