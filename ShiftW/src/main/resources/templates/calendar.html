@@ -8,26 +8,31 @@
 </head>
 <body>
 <div class="box" th:action="@{/calender}">
-    <form th;> 
-    	
-    </form>
-    <table>
-		
-		<form>
+	<p th:text="${username}"></p>
+	<p th:text="${year} +'年'"></p>
+	<table>
+		<tr>
+			<td><input type="button" id="month-1" class="month" value="<<"  name=""></td>
+			<td><p th:text="${month} +'月'"></p><td>	
+			<td><input type="button" id="month+1" class="month" value=">>"  name=""></td>
+    	</tr>
+    </table>
+    <form th:action="@{/calender2}" th:object="${calendarForm}" method="post">
+    	<table>
 	
 	    <!-- <div id="date" name="date" th;each="@{date}"></div> -->
 		    
 		    <th:block th:each="i : ${#numbers.sequence(1,days,1)}">
 	        <tr>
-	            <td><p th:text="|5/${i}|"></p></td>
+	            <td><p th:text="|${month}/${i}|"></p></td>
 			
-				<td><p th:id="'sbh1_'+ ${i}" class="box_1"><input type="radio" th:id="${i}" class="sbh1" th:name="|radio${i}|" value="ラジオボタン１" onclick="clickBtn1(this.id)"/><span>休み</span></p></td>
-				<td><p th:id="'sbh2_'+ ${i}" class="box_1"><input type="radio" th:id="'sbh2_'+ ${i}" class="sbh2" th:name="|radio${i}|" value="ラジオボタン２" onclick="clickBtn2(this.id);"/><span>出勤</span></p></td>
+				<td><p th:id="'sbh1_'+ ${i}"  class="box_1"><input th:field="*{radio1}" type="radio" th:id="${i}" class="sbh1" th:name="|radio${i}|" value="ラジオボタン１" onclick="clickBtn1(this.id)"/><span>休み</span></p></td>
+				<td><p th:id="'sbh2_'+ ${i}"  class="box_1"><input th:field="*{radio2}" type="radio" th:id="'sbh2_'+ ${i}" class="sbh2" th:name="|radio${i}|" value="ラジオボタン２" onclick="clickBtn2(this.id);"/><span>出勤</span></p></td>
 				
 				
 				
 				<td><label for="time"></label>
-				<input id="'time1_'+ ${i}" class="time" value="08;00" type="time" list="data-list" th:name="|time${i}|" min="06:00" max="020:00" step="1800"/>
+				<input id="'time1_'+ ${i}" th:field="*{time1}" class="time" value="08;00" type="time" list="data-list" th:name="|time${i}|" min="06:00" max="020:00" step="1800"/>
 				<span></span>
 				<datalist id="data-list">
 			    <option value="06:00"></option>
@@ -65,7 +70,7 @@
 				
 				
 				<td><label for="time"></label>
-				<input id="'time2_'+ ${i}" class="time" value="08;00" type="time" list="data-list" th:name="|time${i}|" min="06:00" max="020:00" step="1800"/>
+				<input id="'time2_'+ ${i}" th:field="*{time2}" class="time" value="08;00" type="time" list="data-list" th:name="|time${i}|" min="06:00" max="020:00" step="1800"/>
 				<span></span>
 				<datalist id="data-list">
 			    <option value="06:00"></option>
@@ -105,10 +110,10 @@
 				<td><p th:id="'sbh3_'+ ${i}"><input  type="radio" class="sbh3"  th:name="|radio${i}|" value="ラジオボタン3" onclick="clickBtn3(this.id);"/></p></td>
 			</tr>
 			</th:block>
-			<input type="submit" value="送信">
-		</form>
-		
-	</table>
+			
+		</table>
+	<input type="submit" value="送信">
+	</form>
 </div>
 
 </body>

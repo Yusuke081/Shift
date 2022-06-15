@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  th:href="@{/css/calendar.css}"/>
+<script th:src="@{/js/calendar.js}"></script>
+<title>シフト希望</title>
+</head>
+<body>
+<h1>送信しました</h1>
+<div class="box" th:action="@{/calender}">
+
+	<p th:text="${username}"></p>
+		<table>
+		<th:block th:each="calendarEntity : ${calendarEntity}">
+        
+        <tr>
+            <td th:text="${calendarEntity.radio1}"></td>
+            <td th:text="${calendarEntity.radio2}"></td>
+            <td th:text="${calendarEntity.time1}"></td>
+            <td th:text="${calendarEntity.time2}"></td>
+        </tr>
+        </th:block>
+    </table>
+
+</div>
+
+</body>
+</html>
