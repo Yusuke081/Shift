@@ -75,7 +75,7 @@ public class LoginController {
     	System.out.println(username);
     	
     	
-        return "index";
+        return "redirect:calendar";
         
     	}
   
